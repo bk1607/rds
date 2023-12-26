@@ -1,5 +1,5 @@
 resource "aws_rds_cluster" "default" {
-  cluster_identifier      = "${var.env}-${var.cluster_name}"
+  cluster_identifier      = var.cluster_name
   engine                  = var.engine_name
   engine_version          = var.engine_version
   database_name           = var.database_name
