@@ -3,8 +3,8 @@ resource "aws_rds_cluster" "default" {
   engine                  = var.engine_name
   engine_version          = var.engine_version
   database_name           = var.database_name
-  master_username         = data.aws_ssm_parameter.rds_user
-  master_password         = data.aws_ssm_parameter.rds_pass
+  master_username         = data.aws_ssm_parameter.rds_user.value
+  master_password         = data.aws_ssm_parameter.rds_pass.value
   backup_retention_period = var.backup
   preferred_backup_window = var.backup_window
   db_subnet_group_name = aws_db_subnet_group.default.name
