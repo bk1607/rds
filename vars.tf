@@ -8,3 +8,4 @@ variable "instance_count" {}
 variable "instance_class" {}
 variable "env" {}
 variable "subnet_group_name" {}
+variable "db_subnet_ids" {}

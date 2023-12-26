@@ -19,13 +19,11 @@ resource "aws_rds_cluster_instance" "cluster_instances" {
   engine_version     = aws_rds_cluster.default.engine_version
 }
 
-locals {
-  db_subnet_ids =  data.aws_subnets.vpc_subnets.ids
-}
+
 
 resource "aws_db_subnet_group" "default" {
   name       = "${var.env}-${var.subnet_group_name}"
-  subnet_ids = local.db_subnet_ids
+  subnet_ids = var.db_subnet_ids
 
   tags = {
     Name = "My DB subnet group"
